@@ -1,0 +1,46 @@
+<footer id="site-footer">
+    <div class="container">
+      <div class="h5 pt-4">{{ .Site.Title }}</div>
+  
+      <div class="row">
+        <div class="col col-lg-3">
+          <ul class="list-unstyled">
+            {{ range .Site.Menus.main }}
+              {{ if ne .Name "About" }}
+              <li>
+                <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+              </li>
+              {{ end }}
+            {{ end }}
+            <br>
+            <li>
+              <a href="/legal">Legal Notice / Impressum</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-4">
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://github.com/henriwahl/nagstamon">
+                <span class="align-middle text-secondary pr-2">{{ partial "icon-github.html" . }}</span><span>nagstamon</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/nagstamon">
+                <span class="align-middle text-secondary pr-2">{{ partial "icon-twitter.html" . }}</span><span>nagstamon</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ "feed.xml" | absURL }}">
+                <span class="align-middle text-secondary pr-2">{{ partial "icon-rss.html" . }}</span><span>rss feed</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-5">
+          <p class="text-secondary text-justify">©2023 Henri Wahl + the <a href="https://github.com/HenriWahl/Nagstamon/graphs/contributors">Nagstamon community</a></p>
+        </div>
+      </div>
+  
+    </div>
+  </footer>
