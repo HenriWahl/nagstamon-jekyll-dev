@@ -7,24 +7,24 @@
   <div class="post-content">
     {{ .Content }}
 
-    {{ $postsByYear := .Site.RegularPages.GroupByDate "2006" }}
+    {{ $postsByYear := (where .Site.RegularPages "Section" "news").GroupByDate "2006" }}
     {{ range $index, $group := $postsByYear }}
-      {{ if eq $group.Key (index $postsByYear 0).Key }}
-        <h2 class="mt-0 h4">{{ $group.Key }}</h2>
-      {{ else }}
-        <h2 class="h4">{{ $group.Key }}</h2>
-      {{ end }}
-      <table class="ml-4">
-        {{ range $group.Pages }}
-          {{ if eq .Section "news" }}
-          <tr>
-            <td class="text-right align-top text-truncate"><time class="text-secondary" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan _2" }}</time></td>
-            <td class="text-center align-top px-1">|</td>
-            <td class="text-left align-top"><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
-          </tr>
-          {{ end }}
+      {{ if gt (len $group.Pages) 0 }}
+        {{ if eq $group.Key (index $postsByYear 0).Key }}
+          <h2 class="mt-0 h4">{{ $group.Key }}</h2>
+        {{ else }}
+          <h2 class="h4">{{ $group.Key }}</h2>
         {{ end }}
-      </table>
+        <table class="ml-4">
+          {{ range $group.Pages }}
+            <tr>
+              <td class="text-right align-top text-truncate"><time class="text-secondary" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan _2" }}</time></td>
+              <td class="text-center align-top px-1">|</td>
+              <td class="text-left align-top"><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+            </tr>
+          {{ end }}
+        </table>
+      {{ end }}
     {{ end }}
 
     <div class="pt-3"></div>
