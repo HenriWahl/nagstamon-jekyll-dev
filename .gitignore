@@ -3,3 +3,7 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 .idea
+# Hugo
+docs/public/
+docs/.hugo_build.lock
+docs/resources/

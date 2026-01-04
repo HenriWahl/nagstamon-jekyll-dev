@@ -23,8 +23,7 @@ email: contact@nagstamon.de
 description: >- # this means to ignore newlines until "baseurl:"
   Nagstamon status monitor for the desktop.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://nagstamon.de" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: nagstamon
+url: "https://www-hugo-copilot.nagstamon.de" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  henriwahl
 
 repository: henriwahl/nagstamon
@@ -60,7 +59,7 @@ footer_icons:
   url: https://twitter.com/nagstamon
   icon: minima-social-icons-twitter.svg
 - username: rss feed
-  url: https://nagstamon.de/feed
+  url: https://www-hugo-copilot.nagstamon.de/feed
   icon: minima-social-icons-rss.svg
 
 

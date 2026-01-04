@@ -1,2 +1,2 @@
-# nagstamon-jekyll
-Jekyll repository for Nagstamon website [https://nagstamon.de](https://nagstamon.de)
+# nagstamon website transform to Hugo
+Hugo repository for Nagstamon website [https://www-hugo-coplilot.nagstamon.de](https://www-hugo-copilot.nagstamon.de)

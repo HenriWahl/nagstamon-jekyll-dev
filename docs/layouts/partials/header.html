@@ -1,0 +1,21 @@
+<header id="nav-header" class="border-left-0 border-right-0">
+    <div id="nav-container" class="container position-relative d-flex justify-content-between align-items-center">
+      <a class="h4 m-0" rel="author" href="{{ "/" | relURL }}"><img width=180 height=42 src="/assets/images/nagstamon_logo.svg"></a>
+      <nav id="nav-menu-container" class="text-right navbar-light">
+        <input type="checkbox" id="nav-trigger" class="d-none"/>
+        <label for="nav-trigger" aria-label="button" class="m-2 d-inline-block d-md-none navbar-toggler-icon">
+        </label>
+
+        <div id="nav-menu" class="d-none d-md-block p-1">
+          {{ $currentPage := . }}
+          {{ range .Site.Menus.main }}
+            {{ $isDownload := eq .Name "Download" }}
+            {{ $isCurrent := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+            {{ $btnMode := cond $isCurrent "btn-secondary" (cond $isDownload "btn-success" "") }}
+            {{ $downloadIcon := cond $isDownload "<img class='mr-1' width=16 height=16 src=/assets/images/cloud-download.svg>" "" }}
+            <a class="btn btn-sm {{ $btnMode }} my-1 d-block d-md-inline-block" href="{{ .URL | relURL }}">{{ $downloadIcon | safeHTML }}{{ .Name }}</a>
+          {{ end }}
+        </div>
+      </nav>
+    </div>
+  </header>
